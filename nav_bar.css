@@ -1,0 +1,155 @@
+
+
+a{
+    transition : width 2s, height 3s;
+    text-decoration: wavy;
+}
+nav {   
+    position: fixed !important;
+    width: 100vw;
+    top : 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 9vh;
+    font-family: 'Poppins',sans-serif;
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 7px;
+    border-image: linear-gradient(to left, rgba(153, 120, 28, 0.815) 1%, rgb(206, 218, 39) 50%, rgba(153, 120, 28, 0.815) 100%) 
+    0 0 100% 0/0 0 3px 0 stretch;
+    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+    transition:  1s ease-in-out;
+    -webkit-transition:  1s ease-in-out;
+}
+
+.logo{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;  
+}
+.logo img{
+    transition: transform 0.5s ease-in ;
+    animation: logoSpin 2s ease-out ;
+}
+
+.nav-links li{
+    display: inline-block;
+    list-style: none;
+    padding: 0px 2vw;
+}
+li span:hover{
+    color:rgb(53, 158, 190);
+    font-weight: bold;
+}
+
+.nav-links a{
+    color:rgb(46, 45, 45);
+    text-decoration: none;
+    font-size: 25px;
+
+}
+.burger div{
+    display : none;
+    width : 30px;
+    height: 5px;
+    background-color: rgb(25, 202, 105);
+    margin: 5px;
+    right: 10px;
+    border-radius: 1px;
+}
+.setting{
+    cursor: pointer;
+    position: absolute;
+    padding: 5px 12px;
+    right: 5vw;
+}
+
+
+@media screen and (max-width:1200px)
+{
+    .logo{
+        width: 40%;
+    }
+    .body{
+        overflow: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right:0px;
+        top: 5vh;        
+        display :flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 65%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in ;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+    .nav-links li:nth-child(-n+6){
+        width: 100%;
+        height: 15vh;
+        background-color: rgb(230, 221, 221); 
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+    .nav-links li:active{
+        background-color: gray;
+    }
+    .nav-links li a{
+        font-size: 40px;
+        display : inline-block;
+        width: 50%;
+        text-align: center;
+    }
+    .burger div , .burger{
+        display:block;
+        cursor: pointer;
+        transition: transform 0.4s ease-in ;
+    }
+    .under{
+        position: absolute;
+        bottom : 0px;
+        background-image: linear-gradient(to left, rgba(233, 218, 176, 0.815) 1%, rgb(206, 218, 39) 50%, rgba(233, 218, 176, 0.815)  100%);
+        height: 2px;
+        width: 100%;
+    }
+
+}
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes logoSpin{
+    0% {
+        opacity: 0.2;
+        transform: rotate(0deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(720deg);
+    }
+}
+
+.toggle #line1{
+    transform:  rotate(-45deg) translate(-5px,10px);
+}
+.toggle #line2{
+    opacity: 0;
+}
+.toggle #line3{
+    transform: rotate(45deg) translate(-4px,-10px) ;
+}
